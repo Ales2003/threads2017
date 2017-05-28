@@ -3,6 +3,8 @@ package threads2017;
 public class MyThread_1 extends Thread {
 
 	private String threadName;
+	//volatile for guaranteed cheking of 'running' 
+	private volatile Boolean running = true;
 	
 	public String getThreadName() {
 		return threadName;
@@ -16,11 +18,13 @@ public class MyThread_1 extends Thread {
 			this.threadName = threadName;
 	}
 
-
+	public void stopThread() {
+		running = false;
+	}
 	@Override
 	public void run() {
-		while(true){
-			System.out.println("Hello " + this.getId()+ " " + this.threadName);
+		while(running){
+			System.out.println("Hello " + this.getId()+ " " + this.threadName+ " " + this.isDaemon());
 			try { 
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
