@@ -8,6 +8,10 @@ public class Starter {
 			MyThread_1 mt = new MyThread_1("Name "+i);
 			mt.start();
 			System.out.println("Started");
+			
+			
+			
+			
 
 		}
 
