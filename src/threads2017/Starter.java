@@ -9,7 +9,7 @@ public class Starter {
 			mt.start();
 			System.out.println("Started");
 			
-			
+			System.out.println("Started");
 			
 			
 
