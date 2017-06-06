@@ -1,20 +1,12 @@
-package threads2017;
+package ru.mail.ales2003.runnable;
 
-public class MyThread_1 extends Thread {
-
+public class MyRunnable implements Runnable {
 	private String threadName;
 	//volatile for guaranteed cheking of 'running' 
 	private volatile Boolean running = true;
 	
-	public String getThreadName() {
-		return threadName;
-	}
-
-	public void setThreadName(String threadName) {
-		this.threadName = threadName;
-	}
-
-	public MyThread_1(String threadName) {
+	
+	public MyRunnable(String threadName) {
 			this.threadName = threadName;
 	}
 
@@ -24,7 +16,7 @@ public class MyThread_1 extends Thread {
 	@Override
 	public void run() {
 		while(running){
-			System.out.println("Hello " + this.getId()+ " " + this.threadName+ " " + this.isDaemon());
+			System.out.println("Hello " + threadName);
 			try { 
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
