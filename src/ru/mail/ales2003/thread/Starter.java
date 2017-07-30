@@ -6,15 +6,17 @@ import java.util.List;
 public class Starter {
 
 	public static void main(String[] args) throws InterruptedException {
+		// I need List for I can keep the link to thread to tell something to anyone thread  
 		List<MyThread> list = new ArrayList<>();
 		for (int i = 0; i < 5; i++) {
 			MyThread mt = new MyThread("Name " + i);
-			// hasn't sense
+			// priority setting hasn't sense, it depend of JVM only
 			mt.setPriority(Thread.MIN_PRIORITY + i);
 			// thread will be out after main();
 			// mt.setDaemon(true);
 			mt.start();
 			list.add(mt);
+			
 
 		}
 		System.out.println("Started");
@@ -37,11 +39,13 @@ public class Starter {
 
 			@Override
 			public void run() {
-				System.out.println("Anonymous Thread");
-
+				//while (true) {
+					System.out.println("Anonymous Thread");
+				//}
 			}
 		};
 		t.start();
+		//anonymous class has't anyone name 
 		System.out.println("Anonymous " + t.getClass().getCanonicalName());
 		System.out.println("ParentClass of Anonymous " + t.getClass().getSuperclass().getCanonicalName());
 		System.out.println(t.isDaemon());

@@ -15,7 +15,7 @@ public class Starter {
 			list.add(mt);
 
 		}
-		System.out.println("Started");
+		System.out.println("Started Runnable");
 
 		Thread.sleep(2000);
 		// thread of main method
@@ -39,11 +39,13 @@ public class Starter {
 
 			}
 		};
-
 		new Thread(r).start();
 		System.out.println("Anonymous " + r.getClass().getCanonicalName());
 		System.out.println("ParentClass of Anonymous " + r.getClass().getSuperclass().getCanonicalName());
 
 	}
+	
+	
+	
 
 }
